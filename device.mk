@@ -21,6 +21,9 @@
 # definition file).
 #
 
+# Device was launched with M
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
+
 $(call inherit-product-if-exists, vendor/leeco/x2/x2-vendor.mk)
 
 # Overlays
@@ -48,7 +51,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapsize=512m \
     dalvik.vm.heaptargetutilization=0.75 \
     dalvik.vm.heapminfree=4m \
-    dalvik.vm.heapmaxfree=8m
+    dalvik.vm.heapmaxfree=16m
+
+# Device settings
+PRODUCT_PACKAGES += \
+    DeviceSettings
 
 # Fingerprint
 PRODUCT_PACKAGES += \
